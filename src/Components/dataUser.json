@@ -1,0 +1,32 @@
+[
+    {
+        "id":1,
+        "name":"le vinh",
+        "phone":"0335944671",
+        "permission":1
+    },
+    {
+        "id":2,
+        "name":"le ha",
+        "phone":"0335969621",
+        "permission":2
+    },
+    {
+        "id":3,
+        "name":"le suong",
+        "phone":"0335944671",
+        "permission":2
+    },
+    {
+        "id":4,
+        "name":"le thang",
+        "phone":"0335944671",
+        "permission":3
+    },
+    {
+        "id":5,
+        "name":"le manh",
+        "phone":"0565888236",
+        "permission":1
+    }
+]
