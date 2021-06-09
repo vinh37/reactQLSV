@@ -12,6 +12,7 @@ class AddUser extends Component {
         let dtAdd=this.state.dtAdd;
        
         dtAdd[nameAdd]=event.target.value;
+        console.log(this.state.dtAdd);
         this.setState({
             dtAdd
         })
@@ -29,6 +30,7 @@ class AddUser extends Component {
                         <div className="form-group">                   
                         <input name="name" onChange={(event)=>this.isChange(event)} type="text"   className="form-control" placeholder="name" aria-describedby="helpId" />
                         <small>{this.state.dtAdd.name===undefined||this.state.dtAdd.name=="" ? this.props.checkNull.errorName:""}</small>
+                        
                         </div>  
                         <div className="form-group">
                         <input name="phone" onChange={(event)=>this.isChange(event)} type="text"   className="form-control" placeholder="phone" aria-describedby="helpId" />
@@ -37,12 +39,12 @@ class AddUser extends Component {
                         
                         <div className="form-group">                             
                             <select onChange={(event)=>this.isChange(event)} name="permission" className="form-control" >
-                            <option defaultValue={0}>Chon quyen</option>
+                            <option value={0}>Chon quyen</option>
                             <option value={1}>admin</option>
                             <option value={2}>user</option>
                             <option value={3}>customer</option>
                             </select>     
-                            <small>{this.state.dtAdd.quyen===undefined ? this.props.checkNull.errorQuyen:""}</small>           
+                            <small>{this.state.dtAdd.permission===undefined ||this.state.dtAdd.permission==0 ? this.props.checkNull.errorQuyen:""}</small>           
                         </div>
                         <div className="form-group">
                         <div onClick={(dtAdd)=>this.props.AddData(this.state.dtAdd)} className="btn btn-block btn-primary">Them moi</div>

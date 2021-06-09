@@ -42,4 +42,16 @@ table{
 small{
   color:red;
 }
+.right-center{
+  position: fixed;
+  right:0px;
+  top:0px;
+  z-index: 1;
+  width:50%;
 
+}
+#alert{
+  text-align: center;
+  background:darkgreen;
+  color:white
+}

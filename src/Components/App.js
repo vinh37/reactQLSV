@@ -19,9 +19,7 @@ class App extends Component {
       dtUser:datatUser,
       dataFromSearch:'',
       dataAdd:{},
-      errorAdd:{
-        "errorName":"name not empty"
-      },
+      errorAdd:{},
       trangThaiSua:true,
       dataSua:{},
       updateSuccess:false,
@@ -58,17 +56,19 @@ class App extends Component {
     })
   }
   Add=(dt)=>{
-    console.log("undefined: ", dt.length);
+    //console.log("undefined: ", dt.length);
     let errorAdd=this.state.errorAdd;
-    if(dt.name===undefined){
+    console.log("permision : ",dt.permission);
+    if(dt.name===undefined ||dt.name.length==0){
       errorAdd.errorName="name not empty";
       this.setState({errorAdd})
     }
-    else if(dt.phone===undefined){
+    else if(dt.phone===undefined || dt.phone.length==0){
       errorAdd.errorPhone="phone not empty";
       this.setState({errorAdd})
     }
-    else if(dt.permission===undefined){
+    //console.log(": ",this.state.errorAdd);
+    else if(dt.permission===undefined||dt.permission==0){
       errorAdd.errorQuyen="choose permission";
       this.setState({errorAdd})
     }
@@ -106,6 +106,11 @@ class App extends Component {
           });
           // localStorage.setItem('user',JSON.stringify(dtUser));
           // console.log(localStorage.getItem('user',JSON.parse(dtUser)));
+          setTimeout(() => { 
+            this.setState({           
+              removeSuccess:false
+            })
+        }, 2000);
         }
       }
     })
@@ -126,7 +131,11 @@ class App extends Component {
           dtUser,
           updateSuccess:true
         })
-        
+        setTimeout(() => { 
+          this.setState({           
+            updateSuccess:false
+          })
+      }, 2000);
       }
     })
     
@@ -135,7 +144,7 @@ class App extends Component {
     //localStorage.setItem('user',JSON.stringify(datatUser));
     //console.log(localStorage.getItem('user'));
     //console.log("data: ", this.state.dtUser);
-    console.log(this.state.dtUser);
+    //console.log(this.state.dtUser);
     let arr=[];
     datatUser.forEach((item)=>{
       if(item.name.indexOf(this.state.dataFromSearch) !== -1) arr.push(item);

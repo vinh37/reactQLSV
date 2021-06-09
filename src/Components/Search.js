@@ -74,12 +74,7 @@ class Search extends Component {
         }
     }
     
-    // a=()=>{
-    //     return setTimeout( ()=> {
-    //         // Closing the alert
-    //         $('#alert').alert('close');
-    //     }, 5000);
-    // }
+
     
     render() {
         return (

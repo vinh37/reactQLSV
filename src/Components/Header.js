@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
 
 class Header extends Component {
+    constructor(props) {
+        super(props);
+        this.state={
+            visibleAlertUpdate:this.props.updateSuccess,
+            visibleAlertRemove:this.props.removeSuccess
+        };
+    }
     renderUpdateSuccess=()=>{
+            
         if(this.props.updateSuccess===true){
             return (
                 <div  className="container right-center">
-                    <div id="alert" className="alert alert-primary" role="alert">
+                    <div id="alert" className="alert alert-primary" role="alert" >
                     Update success
                     </div>
                 </div>               
@@ -22,8 +30,12 @@ class Header extends Component {
                     </div>
                 </div>     
             )
-            }        
+        }        
           
+    }
+    handleRemove=()=>{
+        return this.renderRemoveSuccess();
+
     }
     render() {
         //console.log("trang thai update",this.props.updateSuccess);
@@ -34,7 +46,7 @@ class Header extends Component {
             <div>
                 <div className="container">                  
                     <div className="jumbotron">
-                        {this.renderRemoveSuccess()}
+                        {this.handleRemove()}
                         {this.renderUpdateSuccess()}
                         <div className="container text-center">          
                             <h1 className="display-3">Quản lí thành viên băng Reactjs</h1>
