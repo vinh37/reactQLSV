@@ -23,7 +23,8 @@ class App extends Component {
       trangThaiSua:true,
       dataSua:{},
       updateSuccess:false,
-      removeSuccess:false
+      removeSuccess:false,
+      addSuccess:false
     }
   }
   // componentWillMount() {
@@ -74,12 +75,24 @@ class App extends Component {
     }
     else{
       let item=this.state.dtUser;
-      dt.id=uuidv4();
-      item.push(dt);
+      let temp={};
+      temp.id=uuidv4();
+      temp.name=dt.name;
+      temp.phone=dt.phone;
+      temp.permission=dt.permission;
+      //dt.id=uuidv4();
+      
+      item.push(temp);
+      
       this.setState({
         dtUser:item,
-        
+        addSuccess:true
       })
+      setTimeout(() => { 
+        this.setState({           
+          addSuccess:false
+        })
+    }, 2000);
     }
     
   }
@@ -151,17 +164,17 @@ class App extends Component {
     })
     //console.log("data Add: ",this.state.dtUser);
     return (
-      <div >
+      <div className="container">
         
-        <Header removeSuccess={this.state.removeSuccess} updateSuccess={this.state.updateSuccess}/>
+        <Header addSuccess={this.state.addSuccess} removeSuccess={this.state.removeSuccess} updateSuccess={this.state.updateSuccess}/>
 
         <Search  update={(dtUpdate)=>this.updateData(dtUpdate)} dataSua={this.state.dataSua} trangThaiSua={this.state.trangThaiSua} connectSearch={(dt)=>this.connectSearch(dt)} ketNoi={this.doiTrangThai} anNut={this.state.hideButton}/>
-        <div className="container">
+        
           <div className="row">           
             <InfoUser remove={(dt)=>this.remove(dt)} edit={(dt)=>this.editInfo(dt)} data={arr}/>
             <AddUser checkNull={this.state.errorAdd} add={this.state.trangThai} AddData={(dt)=>this.Add(dt)}/>
           </div>
-        </div>
+        
       </div>
     );
   }

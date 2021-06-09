@@ -20,10 +20,10 @@ class InfoUser extends Component {
         //console.log("data from json: " + this.props.data); tại sao in ra data ko có gì cả ??
         return (          
                 <div className="col-9">
-                <table className="table table-hover table-striped table-inverse table-responsive">
+                <table className="table table-hover table-striped table-inverse table-responsive " >
                     <thead className="thead-inverse">
                     <tr>
-                        <th>STT</th>
+                        <th className="th1">STT</th>
                         <th>Name</th>
                         <th>Phone</th>
                         <th>Quyen</th>

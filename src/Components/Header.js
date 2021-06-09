@@ -33,9 +33,18 @@ class Header extends Component {
         }        
           
     }
-    handleRemove=()=>{
-        return this.renderRemoveSuccess();
-
+    renderaddSuccess=()=>{
+        //console.log("chay ko vay");
+        if(this.props.addSuccess===true){
+            return(
+                <div  className="container right-center">
+                    <div id="alert" className="alert alert-success" role="alert">
+                    Add success
+                    </div>
+                </div>     
+            )
+        }        
+          
     }
     render() {
         //console.log("trang thai update",this.props.updateSuccess);
@@ -46,8 +55,9 @@ class Header extends Component {
             <div>
                 <div className="container">                  
                     <div className="jumbotron">
-                        {this.handleRemove()}
+                        {this.renderRemoveSuccess()}
                         {this.renderUpdateSuccess()}
+                        {this.renderaddSuccess()}
                         <div className="container text-center">          
                             <h1 className="display-3">Quản lí thành viên băng Reactjs</h1>
                             <p className="lead">json data</p>
