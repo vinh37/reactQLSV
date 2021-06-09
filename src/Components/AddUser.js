@@ -12,7 +12,7 @@ class AddUser extends Component {
         let dtAdd=this.state.dtAdd;
        
         dtAdd[nameAdd]=event.target.value;
-        console.log(this.state.dtAdd);
+        //console.log(this.state.dtAdd);
         this.setState({
             dtAdd
         })

@@ -59,7 +59,7 @@ class App extends Component {
   Add=(dt)=>{
     //console.log("undefined: ", dt.length);
     let errorAdd=this.state.errorAdd;
-    console.log("permision : ",dt.permission);
+    //console.log("permision : ",dt.permission);
     if(dt.name===undefined ||dt.name.length==0){
       errorAdd.errorName="name not empty";
       this.setState({errorAdd})
@@ -130,15 +130,15 @@ class App extends Component {
   }
   updateData=(dtUpdate)=>{
     let dtUser=this.state.dtUser;
-    console.log("update success data : ", dtUpdate);
-    console.log(dtUser);
+    //console.log("update success data : ", dtUpdate);
+    //console.log(dtUser);
     if(Object.keys(dtUpdate).length===0){
-      console.log("you not update!!");
+      //console.log("you not update!!");
       return ;
     };
     dtUser.map((item)=>{
       if(item.id==dtUpdate.id){
-        console.log("vi tri phan tu : " , dtUser.indexOf(item));
+        //console.log("vi tri phan tu : " , dtUser.indexOf(item));
         dtUser[dtUser.indexOf(item)]=dtUpdate;
         this.setState({
           dtUser,
